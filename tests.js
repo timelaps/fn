@@ -7,6 +7,7 @@ require('./call-method/index.test');
 require('./do-try/index.test');
 require('./first/index.test');
 require('./flows/index.test');
+require('./generator/index.test');
 require('./index.test');
 require('./negate/index.test');
 require('./noop/index.test');
