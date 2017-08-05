@@ -4,6 +4,7 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
+    "@timelaps/is": "^1.0.6",
     "@timelaps/to": "^1.0.0"
   },
   "devDependencies": {},
