@@ -1,0 +1,25 @@
+{
+  "name": "@timelaps/fn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "@timelaps/to": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "share": "npm version patch && git push && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timelaps/fn.git"
+  },
+  "keywords": [],
+  "author": "Michael McLaughlin <michael@gospecless.com> (https://gospecless.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timelaps/fn/issues"
+  },
+  "homepage": "https://github.com/timelaps/fn#readme"
+}
