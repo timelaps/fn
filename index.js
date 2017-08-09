@@ -1,5 +1,6 @@
 exports.blockWrapper = require('./block-wrapper');
 exports.cacheable = require('./cacheable');
+exports.cacheableCategorically = require('./cacheable/categorically');
 exports.callMethod = require('./call-method');
 exports.chain = require('./chain');
 exports.doTry = require('./do-try');

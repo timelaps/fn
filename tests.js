@@ -2,6 +2,7 @@ require('./bind/index.test');
 require('./bind/to/index.test');
 require('./bind/with/index.test');
 require('./block-wrapper/index.test');
+require('./cacheable/categorically/index.test');
 require('./cacheable/index.test');
 require('./call-method/index.test');
 require('./do-try/index.test');
