@@ -13,6 +13,8 @@ require('./first/index.test');
 require('./flows/index.test');
 require('./generator/index.test');
 require('./index.test');
+require('./intended/api/index.test');
+require('./intended/index.test');
 require('./negate/index.test');
 require('./noop/index.test');
 require('./once/index.test');
