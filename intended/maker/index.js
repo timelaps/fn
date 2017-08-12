@@ -9,7 +9,7 @@ module.exports = function maker(handleArray, handleObject) {
             if ((obj = isObject(key) ? key : u)) {
                 return handleObject(key, fn);
             } else {
-                fn(key, value);
+                return fn(key, value);
             }
         }
     };
