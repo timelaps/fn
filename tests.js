@@ -6,6 +6,7 @@ require('./cacheable/categorically/index.test');
 require('./cacheable/copy/index.test');
 require('./cacheable/index.test');
 require('./call-method/index.test');
+require('./constructor-name/index.test');
 require('./defer/index.test');
 require('./do-try/index.test');
 require('./each/index.test');
