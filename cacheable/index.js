@@ -1,4 +1,4 @@
-var isUndefined = require('@timelaps/is/undefined');
+var u;
 module.exports = cacheable;
 
 function cacheable(fn) {
@@ -8,7 +8,7 @@ function cacheable(fn) {
 
     function cacheableInstance(input) {
         var value;
-        if (isUndefined(value = cache[input])) {
+        if ((value = cache[input]) === u) {
             value = cache[input] = fn(input);
         }
         return value;
