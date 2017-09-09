@@ -1,14 +1,20 @@
-var indexGenerator = require('.');
+var generator = require('.');
 var b = require('@timelaps/batterie');
-b.describe('indexGenerator', function () {
-    b.expect(indexGenerator, 'toBeFunction');
+b.describe('generator', function () {
+    b.expect(generator, 'toBeFunction');
     b.it('iterates over array like objects', function (t) {
-        var next = indexGenerator([1, 2, 3, 4]);
-        t.expect(next()).toBe(0);
-        t.expect(next()).toBe(1);
-        t.expect(next()).toBe(2);
-        t.expect(next()).toBe(3);
-        t.expect(next()).toBeUndefined();
-        t.expect(next()).toBeUndefined();
-    }, 6);
+        var gen = generator();
+        t.expect(gen.next()).toEqual({
+            value: 0,
+            done: false
+        });
+        t.expect(gen.next()).toEqual({
+            value: 1,
+            done: false
+        });
+        t.expect(gen.next()).toEqual({
+            value: 2,
+            done: false
+        });
+    }, 3);
 });

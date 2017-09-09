@@ -1,29 +1,42 @@
-var returnsSecondArgument = require('@timelaps/returns/second');
-var returnsFirstArgument = require('@timelaps/returns/first');
 module.exports = gen;
+var u;
+var returnsFalse = require('@timelaps/returns/false');
+var returnsFirst = require('@timelaps/returns/first');
+var returnsTrue = require('@timelaps/returns/true');
+var once = require('../once');
+gen.Generator = Generator;
+gen.noop = gen(returnsTrue);
 
-function gen(array, dir_, cap_, incrementor_, transformer_) {
-    var previous, dir = dir_ || 1,
-        length = array.length,
-        counter = dir > 0 ? -1 : length,
-        transformer = transformer_ || returnsFirstArgument,
-        incrementor = incrementor_ || returnsSecondArgument,
-        cap = cap_ || (counter < 0 ? untilLength : until0);
-    return next;
+function Generator() {}
 
-    function next() {
-        counter += dir;
-        if (cap(counter)) {
-            return;
+function gen(doner_, accessor_, nostart_, doer_) {
+    // do something or do nothing
+    var finished = false;
+    var doer = doer_ || Generator;
+    var nostart = once(nostart_ || returnsFalse);
+    var doner = doner_ || returnsFalse;
+    var accessor = accessor_ || returnsFirst;
+    var counter = 0;
+    Generator.prototype = {
+        next: next
+    };
+    return new Generator();
+
+    function next(exposure) {
+        if (finished || nostart(counter)) {
+            return {
+                value: u,
+                done: true
+            };
         }
-        return transformer(previous = incrementor(previous, counter, array));
-    }
-
-    function untilLength(counter) {
-        return counter >= length;
-    }
-
-    function until0(counter) {
-        return counter < 0;
+        var done = doner(counter);
+        var value = accessor(counter);
+        doer(counter, exposure);
+        counter += 1;
+        finished = done;
+        return {
+            value: value,
+            done: done
+        };
     }
 }
