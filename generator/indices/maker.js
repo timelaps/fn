@@ -1,6 +1,6 @@
 module.exports = indecesGeneratorMaker;
 var returnsFirst = require('@timelaps/returns/first');
-var generator = require('..');
+var generator = require('../');
 
 function indecesGeneratorMaker(array, transformer) {
     var length = array.length;

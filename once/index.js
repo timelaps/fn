@@ -1,9 +1,14 @@
-module.exports = function once(fn) {
-    var doIt = 1;
-    return function onceInstance() {
-        if (doIt) {
-            doIt = 0;
+module.exports = once;
+
+function once(fn) {
+    var counter = 1;
+    instance.counter = counter;
+    return instance;
+
+    function instance() {
+        if (counter) {
+            counter = 0;
             return fn.apply(this, arguments);
         }
-    };
-};
+    }
+}

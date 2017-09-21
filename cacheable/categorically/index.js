@@ -1,5 +1,5 @@
 module.exports = categoricallyCachable;
-var cacheable = require('..');
+var cacheable = require('../');
 
 function categoricallyCachable(fn, baseCategory) {
     var cache = {};
