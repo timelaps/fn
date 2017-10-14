@@ -17,7 +17,6 @@ function cacheableCopy(fn, stringify_, parse_) {
             if (result !== u) {
                 cached = cache[string] = stringify(result);
             }
-            cached = result;
         }
         return cached ? parse(cached) : cached;
     }
