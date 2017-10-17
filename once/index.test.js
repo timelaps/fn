@@ -18,7 +18,7 @@ b.describe('once', function () {
                 return arg1;
             })(1);
         }).notToThrow();
-        t.expect(arg1).toBe(1);
+        t.expect(arg1).toBeUndefined();
     }, 2);
     b.it('does not run more than once', function (t) {
         var counter = 0;

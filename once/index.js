@@ -8,7 +8,7 @@ function once(fn) {
     function instance() {
         if (counter) {
             counter = 0;
-            return fn.apply(this, arguments);
+            fn.apply(this, arguments);
         }
     }
 }
