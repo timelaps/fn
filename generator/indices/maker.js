@@ -1,7 +1,7 @@
 module.exports = indecesGeneratorMaker;
 var generator = require('../');
 
-function indecesGeneratorMaker(transformer, continues) {
+function indecesGeneratorMaker(transformer) {
     return generator(function (context) {
         var length = context.length;
         if (!length) {
@@ -12,7 +12,8 @@ function indecesGeneratorMaker(transformer, continues) {
             length: length
         };
     }, function (context, exposure, counter_) {
-        var value = transformer(context, counter_);
-        return continues(context, value);
+        // ignore exposure because we don't want to
+        // be influenced by outside forces
+        return transformer(context, counter_);
     });
 }

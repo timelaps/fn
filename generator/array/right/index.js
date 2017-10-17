@@ -1,9 +1,8 @@
 var maker = require('../../indices/maker');
 module.exports = maker(function (context, counter) {
-    return context.length - (counter + 1);
-}, function (context, counter) {
+    var value = context.length - (counter + 1);
     return {
-        value: context.target[counter],
-        done: counter <= 0
+        value: context.target[value],
+        done: value <= 0
     };
 });
