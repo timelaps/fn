@@ -1,8 +1,9 @@
 var indecesGenerator = require('.');
 var b = require('@timelaps/batterie');
 b.describe('indecesGenerator', function () {
-    b.expect(indecesGenerator, 'toBeFunction');
+    b.expect(indecesGenerator).toBeFunction();
     b.it('iterates over array like objects', function (t) {
+        debugger;
         var gen = indecesGenerator([1, 2, 3, 4]);
         t.expect(gen.next()).toEqual({
             value: 3,

@@ -1,15 +1,18 @@
 module.exports = indecesGeneratorMaker;
-var returnsFirst = require('@timelaps/returns/first');
 var generator = require('../');
 
-function indecesGeneratorMaker(array, transformer) {
-    var length = array.length;
-    var max = length - 1;
-    return generator(lessThanMax, transformer, function () {
-        return !length;
+function indecesGeneratorMaker(transformer, continues) {
+    return generator(function (context) {
+        var length = context.length;
+        if (!length) {
+            return this.return();
+        }
+        return {
+            target: context,
+            length: length
+        };
+    }, function (context, exposure, counter_) {
+        var value = transformer(context, counter_);
+        return continues(context, value);
     });
-
-    function lessThanMax(counter) {
-        return counter >= max;
-    }
 }

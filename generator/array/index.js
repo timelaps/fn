@@ -1,8 +1,8 @@
-module.exports = arrayGenerator;
-var indecesGenerator = require('../indices/maker');
-
-function arrayGenerator(array) {
-    return indecesGenerator(array, function (index) {
-        return array[index];
-    });
-}
+var returnsSecond = require('@timelaps/returns/second');
+var maker = require('../indices/maker');
+module.exports = maker(returnsSecond, function (context, counter) {
+    return {
+        value: context.target[counter],
+        done: context.length <= (counter + 1)
+    };
+});
